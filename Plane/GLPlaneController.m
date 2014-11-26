@@ -34,6 +34,7 @@
 @implementation GLPlaneController
 {
     GLfloat scaleFactor;
+    GLfloat curScale;
     GLfloat rotateX;
     GLfloat rotateY;
     GLKMatrix4 rotateMatrix;
@@ -63,6 +64,7 @@
     NSArray* easeFunctionCollection;
     __weak IBOutlet UISlider *selectAnimationSlider;
     __weak IBOutlet UILabel *selectAnimationTime;
+    __weak IBOutlet UILabel *pickViewChooseLabel;
 }
 
 @synthesize context = _context;
@@ -72,6 +74,7 @@
 
 - (void)initParameter{
     scaleFactor = 1.0;
+    curScale = 1.0;
     rotateY = 0.0;
     rotateX = 0.0;
     rotateMatrix = GLKMatrix4Identity;
@@ -259,15 +262,26 @@
 
 - (void)zoomView:(UIPinchGestureRecognizer *)recognizer
 {
-    scaleFactor = recognizer.scale;
-    if (recognizer.scale < MinScaleFactor) {
-        scaleFactor = MinScaleFactor;
+    if (recognizer.state == UIGestureRecognizerStateChanged) {
+        scaleFactor = curScale * recognizer.scale;
+        if (scaleFactor < MinScaleFactor) {
+            scaleFactor = MinScaleFactor;
+        }
+        if (scaleFactor  > MaxScaleFactor) {
+            scaleFactor = MaxScaleFactor;
+        }
+        
+        [self setUpModelViewMatrix];
+    }else if (recognizer.state == UIGestureRecognizerStateEnded){
+        curScale *= recognizer.scale;
+        
+        if (curScale < MinScaleFactor) {
+            curScale = MinScaleFactor;
+        }
+        if (curScale  > MaxScaleFactor) {
+            curScale = MaxScaleFactor;
+        }
     }
-    if (recognizer.scale  > MaxScaleFactor) {
-        scaleFactor = MaxScaleFactor;
-    }
-    
-    [self setUpModelViewMatrix];
 }
 
 - (void)computeRotateMatrix:(CGPoint) point
@@ -379,6 +393,7 @@
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect{
+    [self setUpProjectionMatrix];
     glClearColor(0.0, 0.0, 0.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
