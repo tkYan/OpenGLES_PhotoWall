@@ -19,7 +19,7 @@
 #define MAX_COL 25
 #define Sensitivity 0.8
 #define VelocityFactor 0.04
-#define SWITCH_SHAPE_DURATION 5000
+#define SWITCH_SHAPE_DURATION 3000
 #define DEFAULT_ANIMATION_TIME 2
 #define MAX_SELECT_ANIMATION_TIME 5
 #define MIN_SELECT_ANIMATION_TIME 1
@@ -71,6 +71,8 @@
 @synthesize effect = _effect;
 
 #pragma mark - Init&Dealloc
+
+
 
 - (void)initParameter{
     scaleFactor = 1.0;
@@ -211,6 +213,8 @@
     [self setupGL];
     [self addGesture];
     [self setUpUI];
+    
+    NSLog(@"width: %f, height: %f", self.view.frame.size.width, self.view.frame.size.height);
 }
 
 - (void)setUpUI{
@@ -230,6 +234,11 @@
     selectAnimationSlider.value = DEFAULT_ANIMATION_TIME;
     
     [self setSelectAnimationTimeLabel];
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        pickViewChooseLabel.hidden = true;
+        pickView.hidden = true;
+    }
 }
 
 - (void)tearDownGL {

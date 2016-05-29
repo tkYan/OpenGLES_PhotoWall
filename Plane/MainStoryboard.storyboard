@@ -1,53 +1,86 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="xxj-fb-4Uk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xxj-fb-4Uk">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--Plane Controller-->
         <scene sceneID="d2C-b4-GCV">
             <objects>
-                <viewController id="xxj-fb-4Uk" customClass="GLPlaneController" sceneMemberID="viewController">
+                <viewController wantsFullScreenLayout="YES" id="xxj-fb-4Uk" customClass="GLPlaneController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NvS-Xd-L80"/>
+                        <viewControllerLayoutGuide type="bottom" id="45s-hq-tuT"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ywr-jO-Hce" customClass="GLKView">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" id="if3-xu-RYP">
-                                <rect key="frame" x="184" y="20" width="400" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="if3-xu-RYP">
+                                <rect key="frame" x="100" y="20" width="400" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="QbA-yp-2K2"/>
+                                    <constraint firstAttribute="height" constant="216" id="UC5-Xd-D4p"/>
+                                </constraints>
                             </pickerView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="hJQ-6p-SOP">
-                                <rect key="frame" x="150" y="907" width="267" height="31"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <action selector="selectAnimationTimeChange:" destination="xxj-fb-4Uk" eventType="valueChanged" id="2H3-ZE-EJO"/>
-                                </connections>
-                            </slider>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose select animation time:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GdV-6a-DIE">
-                                <rect key="frame" x="264" y="852" width="241" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t7b-XR-0uq">
-                                <rect key="frame" x="485" y="907" width="99" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose ease function here:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xco-t8-OBy">
-                                <rect key="frame" x="274" y="20" width="221" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose ease function here:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xco-t8-OBy">
+                                <rect key="frame" x="195" y="20" width="210" height="21"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose select animation time:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdV-6a-DIE">
+                                <rect key="frame" x="185" y="469" width="230.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7b-XR-0uq">
+                                <rect key="frame" x="295.5" y="509.5" width="10.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hJQ-6p-SOP">
+                                <rect key="frame" x="167" y="550" width="267" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="263" id="WH7-4x-EPn"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="selectAnimationTimeChange:" destination="xxj-fb-4Uk" eventType="valueChanged" id="2H3-ZE-EJO"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="if3-xu-RYP" firstAttribute="centerX" secondItem="ywr-jO-Hce" secondAttribute="centerX" id="8UJ-ag-css"/>
+                            <constraint firstItem="hJQ-6p-SOP" firstAttribute="centerX" secondItem="ywr-jO-Hce" secondAttribute="centerX" id="Byr-FA-pCB"/>
+                            <constraint firstItem="Xco-t8-OBy" firstAttribute="centerX" secondItem="ywr-jO-Hce" secondAttribute="centerX" id="IYM-Fq-RKM"/>
+                            <constraint firstItem="GdV-6a-DIE" firstAttribute="centerX" secondItem="ywr-jO-Hce" secondAttribute="centerX" id="RDN-Pe-FcF"/>
+                            <constraint firstItem="hJQ-6p-SOP" firstAttribute="top" secondItem="t7b-XR-0uq" secondAttribute="bottom" constant="20" id="Uvp-Yg-miv"/>
+                            <constraint firstItem="if3-xu-RYP" firstAttribute="top" secondItem="NvS-Xd-L80" secondAttribute="bottom" id="faz-yT-ukZ"/>
+                            <constraint firstItem="hJQ-6p-SOP" firstAttribute="centerX" secondItem="GdV-6a-DIE" secondAttribute="centerX" id="gR4-To-6Pn"/>
+                            <constraint firstItem="45s-hq-tuT" firstAttribute="top" secondItem="hJQ-6p-SOP" secondAttribute="bottom" id="ifN-zP-gLF"/>
+                            <constraint firstItem="hJQ-6p-SOP" firstAttribute="top" secondItem="t7b-XR-0uq" secondAttribute="bottom" constant="20" id="j9H-Xe-1d2"/>
+                            <constraint firstItem="Xco-t8-OBy" firstAttribute="top" secondItem="NvS-Xd-L80" secondAttribute="bottom" id="nml-Ws-Lrx"/>
+                            <constraint firstItem="45s-hq-tuT" firstAttribute="top" secondItem="hJQ-6p-SOP" secondAttribute="bottom" constant="20" id="obF-qG-abM"/>
+                            <constraint firstItem="hJQ-6p-SOP" firstAttribute="centerX" secondItem="t7b-XR-0uq" secondAttribute="centerX" id="rnR-6X-r21"/>
+                            <constraint firstItem="t7b-XR-0uq" firstAttribute="centerX" secondItem="ywr-jO-Hce" secondAttribute="centerX" id="vdV-6N-QNv"/>
+                            <constraint firstItem="t7b-XR-0uq" firstAttribute="top" secondItem="GdV-6a-DIE" secondAttribute="bottom" constant="20" id="waD-6E-IJY"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ifN-zP-gLF"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="ifN-zP-gLF"/>
+                                <exclude reference="obF-qG-abM"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="pickView" destination="if3-xu-RYP" id="bQS-DJ-EOw"/>
@@ -58,12 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3v-sN-39Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-254" y="-235"/>
+            <point key="canvasLocation" x="-198.4375" y="-137.6953125"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="lightContent"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
-    </simulatedMetricsContainer>
 </document>
