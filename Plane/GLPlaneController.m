@@ -396,7 +396,7 @@
 #pragma mark - GLKViewDelegate
 
 - (void)setUpProjectionMatrix{
-    float aspect = fabsf(self.view.bounds.size.width / self.view.bounds.size.height);
+    float aspect = fabs(self.view.bounds.size.width / self.view.bounds.size.height);
     GLKMatrix4 projectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(60.0f), aspect, 1.0f, 20.0f);
     self.effect.transform.projectionMatrix = projectionMatrix;
 }
